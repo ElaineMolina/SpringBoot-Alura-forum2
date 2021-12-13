@@ -1,4 +1,4 @@
-package br.com.molina.forum1;
+package br.com.molina.forum;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

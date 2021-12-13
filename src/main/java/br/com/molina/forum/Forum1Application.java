@@ -1,4 +1,4 @@
-package br.com.molina.forum1;
+package br.com.molina.forum;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
