@@ -11,8 +11,8 @@ import java.util.List;
 
 @RestController
 public class TopicosController {
-    @RequestMapping("/topicos")
 
+    @RequestMapping("/topicos")
     public List<TopicoDto> lista(){
         Topico topico = new Topico("Dúvida", "Dúvida com Spring", new Curso("Sprinig", "Programação"));
 
