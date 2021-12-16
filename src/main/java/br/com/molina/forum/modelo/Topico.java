@@ -26,6 +26,9 @@ public class Topico {
 	public Topico(String titulo, String mensagem, Curso curso) {
 	}
 
+	public Topico() {
+	}
+
 	public Topico(Long id, String mensagem, Curso curso) {
 		this.id = id;
 		this.mensagem = mensagem;
