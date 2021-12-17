@@ -1,12 +1,13 @@
 package br.com.molina.forum.controller.form;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 import br.com.molina.forum.modelo.Curso;
 import br.com.molina.forum.modelo.Topico;
 import br.com.molina.forum.repository.CursoRepository;
-import org.hibernate.validator.constraints.Length;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 public class TopicoForm {
 
@@ -15,7 +16,6 @@ public class TopicoForm {
 
     @NotNull @NotEmpty @Length(min = 10)
     private String mensagem;
-
     @NotNull @NotEmpty
     private String nomeCurso;
 
@@ -45,6 +45,7 @@ public class TopicoForm {
 
     public Topico converter(CursoRepository cursoRepository) {
         Curso curso = cursoRepository.findByNome(nomeCurso);
-        return new Topico(titulo, mensagem, curso);
+        return new Topico (titulo, mensagem, curso) ;
     }
+
 }
