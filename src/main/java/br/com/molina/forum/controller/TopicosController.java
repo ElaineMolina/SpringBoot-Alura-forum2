@@ -7,6 +7,8 @@ import br.com.molina.forum.repository.CursoRepository;
 import br.com.molina.forum.repository.TopicoRepository;
 import org.hibernate.internal.CoordinatingEntityNameResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +25,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/topicos")
+@EnableCaching
 public class TopicosController {
 
     @Autowired
@@ -31,6 +34,7 @@ public class TopicosController {
     private CursoRepository cursoRepository;
 
     @GetMapping
+    @Cacheable(value = "listaDeTopicos")
     public Page<TopicoDto> lista(@RequestParam(required = false) String nomeCurso,
                                  @PageableDefault(sort = "id", direction = Sort.Direction.DESC, page = 0, size = 10)
                                  Pageable paginacao){
