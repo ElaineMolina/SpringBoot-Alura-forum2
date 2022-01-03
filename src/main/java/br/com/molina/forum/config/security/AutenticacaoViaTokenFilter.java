@@ -1,9 +1,7 @@
 package br.com.molina.forum.config.security;
 
-import antlr.Token;
 import br.com.molina.forum.modelo.Usuario;
 import br.com.molina.forum.repository.UsuarioRepository;
-import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -39,8 +37,8 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
     private void autenticarCliente(String token) {
         Long idUsuario = tokenService.getIdUsuario(token);
         Usuario usuario = repository.findById(idUsuario).get();
-        UsernamePasswordAuthenticationToken autthentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities() );
-        SecurityContextHolder.getContext().setAuthentication(autthentication);
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities() );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
     private String recuperarToken(HttpServletRequest request){

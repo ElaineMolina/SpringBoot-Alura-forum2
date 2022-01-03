@@ -3,9 +3,6 @@ package br.com.molina.forum.controller;
 import br.com.molina.forum.config.security.TokenService;
 import br.com.molina.forum.controller.dto.TokenDto;
 import br.com.molina.forum.controller.form.LoginForm;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
